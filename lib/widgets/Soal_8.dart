@@ -10,58 +10,71 @@ class Soal_8 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            leading: FlutterLogo(),
-            title: Text(
-              "Text Judul",
-            ),
-            actions: [
-              IconButton(
-                onPressed: () {
-                  print("tertekan");
-                },
-                icon: Icon(Icons.more_vert),
-              )
-            ]),
-        body: GridView.builder(
-            itemCount: 50,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
-            ),
-            itemBuilder: (context, index) {
-              if (index % 2 == 0) {
-                return Container(
-                    width: 10,
-                    height: 10,
-                    color: Colors.blue,
-                    child: Center(
-                      child: Text(
-                        "Hello Word",
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontStyle: FontStyle.italic,
-                          color: Colors.white,
-                        ),
+      appBar: AppBar(
+          leading: FlutterLogo(),
+          title: Text(
+            "Text Judul",
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                print("tertekan");
+              },
+              icon: Icon(Icons.more_vert),
+            )
+          ]),
+      body: ListView.builder(
+          padding: EdgeInsets.all(20),
+          itemCount: 50,
+          itemBuilder: (context, index) {
+            if (index % 2 == 0) {
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 100,
+                      color: Colors.blue,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "Helo ${index + 1}",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
                       ),
-                    ));
-              } else {
-                return Container(
-                    width: 100,
-                    height: 100,
-                    color: Colors.amber,
-                    child: Center(
-                      child: Text(
-                        "Hello Word",
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontStyle: FontStyle.italic,
-                          color: Colors.white,
-                        ),
+                    ),
+                  ],
+                ),
+              );
+            } else {
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 100,
+                      color: Colors.amber,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "Helo ${index + 1}",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
                       ),
-                    ));
-              }
-            }));
+                    )
+                  ],
+                ),
+              );
+            }
+          }),
+    );
   }
 }
