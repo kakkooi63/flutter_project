@@ -28,17 +28,29 @@ class Soal_terakhir extends StatelessWidget {
             Column(
               children: [
                 Container(
+                  padding: EdgeInsets.only(
+                    left: 20,
+                    top: 20,
+                    bottom: 20,
+                  ),
                   height: 120,
-                  color: Colors.green,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: 20,
                     itemBuilder: (context, index) {
-                      return Container(
-                        width: 120,
-                        color: Colors.red,
-                        margin: EdgeInsets.only(right: 20),
-                      );
+                      if (index % 2 == 0) {
+                        return Container(
+                          width: 120,
+                          color: Colors.blue,
+                          margin: EdgeInsets.only(right: 20),
+                        );
+                      } else {
+                        return Container(
+                          width: 120,
+                          color: Colors.amber,
+                          margin: EdgeInsets.only(right: 20),
+                        );
+                      }
                     },
                   ),
                 )
